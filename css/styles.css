@@ -517,6 +517,11 @@ img {
     display: block;
 }
 
+.question-wrapper__link {
+    display: block;
+    text-decoration: none;
+}
+
 .question-wrapper__icon {
     position: absolute;
     cursor: pointer;
@@ -593,6 +598,7 @@ img {
 
 .index-bottom__input {
     height: 48px;
+    background-color: #fff;
     padding: 0 113px 0 20px;
     margin-right: 16px;
     border-radius: 5px;
@@ -606,13 +612,11 @@ img {
 .index-bottom__input:not(:focus):not(:placeholder-shown):invalid ~ .index-bottom__error {
     display: block;
     position: absolute;
-    top: 100%;
-    margin-top: 4px;
+    top: 52px;
 }
 
 .index-bottom__error {
     display: none;
-    width: 100%;
     background-color: var(--bg-red);
     color: var(--white);
     font-size: 10px;
