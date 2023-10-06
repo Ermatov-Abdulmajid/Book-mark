@@ -1,18 +1,17 @@
-const elFeaturesItem = document.querySelector('.features__item')
-const elJsFeaturesLink = document.querySelector('.features__link');
-const elsFeaturesItem = document.querySelectorAll('.features__item')
-const elsJsFeaturesLink = document.querySelectorAll('.features__link');
+const Link = document.querySelectorAll('.features__link');
+const Item = document.querySelectorAll('.features__item');
 
-elsJsFeaturesLink.forEach(function (elsJsFeaturesLink) {
-     elsJsFeaturesLink.addEventListener('click' , function (evt) {
+Link.forEach(function (Link) {
+     Link.addEventListener('click' , function (evt) {
           evt.preventDefault();
           
-          elsFeaturesItem.forEach(function (elsFeaturesItem) {
-               elsFeaturesItem.classList.remove('features__link--active');
+          Item.forEach(function (Item) {
+               Item.classList.remove('features__link--active');
           });
-          elJsFeaturesLink.parentElement.classList.add('features__link--active');
+          Link.parentElement.classList.add('features__link--active');
      });
 });
+
 
 const elQuestionWrapper = document.querySelector('.question-wrapper')
 const elQuestionWrapperIcon = document.querySelector('.question-wrapper__icon')

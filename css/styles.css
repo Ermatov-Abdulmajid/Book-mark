@@ -604,6 +604,10 @@ img {
     color: var(--color);
 }
 
+.index-bottom__input:invalid {
+    border: 2px solid var(--bg-red);
+}
+
 .index-bottom__input:not(:focus):not(:placeholder-shown):invalid ~ .index-bottom__error {
     display: block;
     position: absolute;
