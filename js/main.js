@@ -1,26 +1,18 @@
-const elIndexBottomForm = document.querySelector('.index-bottom__form');
-
-elIndexBottomForm.addEventListener('submit', function (evt) {
-     evt.preventDefault(evt);
-});
-
-const elsFeaturesLink = document.querySelectorAll('.features__link');
+const elFeaturesItem = document.querySelector('.features__item')
+const elJsFeaturesLink = document.querySelector('.features__link');
 const elsFeaturesItem = document.querySelectorAll('.features__item')
+const elsJsFeaturesLink = document.querySelectorAll('.features__link');
 
-elsFeaturesLink.forEach(function (elsFeaturesLink) {
-     elsFeaturesLink.addEventListener('click' , function (evt) {
+elsJsFeaturesLink.forEach(function (elsJsFeaturesLink) {
+     elsJsFeaturesLink.addEventListener('click' , function (evt) {
           evt.preventDefault();
           
           elsFeaturesItem.forEach(function (elsFeaturesItem) {
-               elsFeaturesLink.classList.remove('features__link--active');
+               elsFeaturesItem.classList.remove('features__link--active');
           });
+          elJsFeaturesLink.parentElement.classList.add('features__link--active');
      });
 });
-
-elsFeaturesItem.addEventListener('click' , function () {
-     elsFeaturesItem.parentElement.classList.add('features__link--active');
-});
-
 
 const elQuestionWrapper = document.querySelector('.question-wrapper')
 const elQuestionWrapperIcon = document.querySelector('.question-wrapper__icon')
@@ -41,4 +33,10 @@ elIndexQuestionLink.addEventListener('click' , function () {
 elQuestionWrapperLink.addEventListener('click' , function (evt) {
      evt.preventDefault();
      elQuestionWrapper.classList.remove('question-wrapper__js');
+});
+
+const elIndexBottomForm = document.querySelector('.index-bottom__form');
+
+elIndexBottomForm.addEventListener('submit', function (evt) {
+     evt.preventDefault(evt);
 });
