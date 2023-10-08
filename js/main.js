@@ -2,6 +2,9 @@ const Link = document.querySelectorAll('.features__link');
 const Item = document.querySelectorAll('.features__item');
 const TabsPanel = document.querySelectorAll('.features__inner')
 
+const AccordionToggler = document.querySelectorAll('.accordion__item-toggler');
+const accordionItem = document.querySelectorAll('.accordion__item');
+
 function deactivateTabsPanel () {
      TabsPanel.forEach(function (TabsPanel) {
           TabsPanel.classList.remove('features__inner-open');
@@ -11,6 +14,12 @@ function deactivateTabsPanel () {
 function deactivateTabsItem () {
      Item.forEach(function (Item) {
           Item.classList.remove('features__link--active');
+     });
+}
+
+function Accordion () {
+     accordionItem.forEach(function (accordionItem) {
+          accordionItem.classList.remove('accordion__item--open');
      });
 }
 
@@ -30,32 +39,10 @@ Link.forEach(function (Link) {
 });
 
 
-/* const TabsPanel = document.querySelector(Link.dataset.tabTarget);
-TabsPanel.classList.add('features__inner-open'); */
+AccordionToggler.forEach(function (AccordionToggler) {
+     AccordionToggler.addEventListener('click' , function () {
+          Accordion ();
 
-// const elQuestionWrapper = document.querySelector('.question-wrapper')
-// const elQuestionWrapperIcon = document.querySelector('.question-wrapper__icon')
-// const elsIndexQuestionLink = document.querySelectorAll('.index-question__link');
-// const elIndexQuestionLink = document.querySelector('.index-question__link');
-// const elQuestionWrapperLink = document.querySelector('.question-wrapper__link')
-
-// elsIndexQuestionLink.forEach(function (elsIndexQuestionLink) {
-//      elsIndexQuestionLink.addEventListener('click' , function (evt) {
-//           evt.preventDefault();
-//      });
-// });
-
-// elIndexQuestionLink.addEventListener('click' , function () {
-//      elQuestionWrapper.classList.add('question-wrapper__js');
-// });
-
-// elQuestionWrapperLink.addEventListener('click' , function (evt) {
-//      evt.preventDefault();
-//      elQuestionWrapper.classList.remove('question-wrapper__js');
-// });
-
-// const elIndexBottomForm = document.querySelector('.index-bottom__form');
-
-// elIndexBottomForm.addEventListener('submit', function (evt) {
-//      evt.preventDefault(evt);
-// });
+          AccordionToggler.closest('.accordion__item').classList.add('accordion__item--open');
+     });
+});
