@@ -280,6 +280,7 @@ img {
 .features__list .features__link--active {
     border-bottom: 4px solid #fa5959;
     color: var(--bg-red);
+    transition: 0.1s ease;
 }
 
 /* FEATURE-BOTTOM */
