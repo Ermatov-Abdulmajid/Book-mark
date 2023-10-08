@@ -23,13 +23,15 @@ Link.forEach(function (Link) {
           Link.parentElement.classList.add('features__link--active');
           
           deactivateTabsPanel ();
-          const elActivePanel = document.querySelector('Link.dataset.tabTarget');
+
+          const elActivePanel = document.getElementById(Link.dataset.tabTarget);
           elActivePanel.classList.add('features__inner-open');
-          
      });
 });
 
 
+/* const TabsPanel = document.querySelector(Link.dataset.tabTarget);
+TabsPanel.classList.add('features__inner-open'); */
 
 // const elQuestionWrapper = document.querySelector('.question-wrapper')
 // const elQuestionWrapperIcon = document.querySelector('.question-wrapper__icon')
