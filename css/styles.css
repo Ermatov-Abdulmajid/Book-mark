@@ -71,7 +71,7 @@ img {
 }
 
 .site-header__link {
-    transition: 0s ease;
+    transition: 0.1s ease;
 }
 
 .site-header__link:hover {
@@ -117,6 +117,7 @@ img {
     opacity: 0.6;
 }
 
+/* BUTTON */
 .button-link {
     text-decoration: none;
     color: var(--white);
@@ -127,7 +128,7 @@ img {
     box-shadow: 0px 8px 8px -4px rgba(73, 93, 207, 0.20);
     background-color: var(--bg-red);
     border-radius: 5px;
-    transition: border 0.1s ease;
+    transition: 0.1s ease;
 }
 
 .button-link:hover {
@@ -595,6 +596,7 @@ img {
 }
 
 .index-bottom__wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -622,9 +624,12 @@ img {
 }
 
 .index-bottom__form {
-    position: relative;
     display: flex;
 }
+
+.form-wrapper {
+    position: relative;
+} 
 
 .index-bottom__input {
     height: 48px;
@@ -639,18 +644,24 @@ img {
     color: var(--color);
 }
 
-.index-bottom__input:invalid {
-    border: 2px solid var(--bg-red);
+.index-bottom__input:not(:focus):not(:placeholder-shown):invalid {
+    background-repeat: no-repeat;
+    background-image: url('../img/error-disc.svg');
+    background-position: right 16px center;
+    border-color: var(--bg-red);
 }
 
 .index-bottom__input:not(:focus):not(:placeholder-shown):invalid ~ .index-bottom__error {
     display: block;
-    position: absolute;
-    top: 52px;
 }
 
 .index-bottom__error {
+    position: absolute;
     display: none;
+    width: 286px;
+    margin-top: 45px;
+    border-radius: 0 0 5px 5px;
+    padding: 6px 12px;
     background-color: var(--bg-red);
     color: var(--white);
     font-size: 10px;
@@ -718,6 +729,7 @@ img {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-right: auto;
 }
 
 .site-footer__link {
@@ -738,16 +750,11 @@ img {
     color: var(--bg-red);
 }
 
-.site-footer__item {
-    display: flex;
-}
-
-.site-footer__icon {
-    margin-left: 44px;
-}
-
 .site-footer__icon-wrapper {
     display: flex;
     align-items: center;
-    margin-left: 471px;
+}
+
+.site-footer__item:not(:last-child) {
+    margin-right: 44px;
 }
