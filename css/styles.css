@@ -570,7 +570,7 @@ select:-webkit-autofill:focus {
 /* EXTENSIONS */
 .extensions__list {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   padding: 0;
   margin-top: 0;
@@ -581,7 +581,10 @@ select:-webkit-autofill:focus {
 .extensions__item {
   width: 100%;
   max-width: 280px;
-  margin-left: 35px;
+}
+
+.extensions__item:not(:last-child) {
+  margin-right: 35px;
 }
 
 .extensions__item:nth-child(3n + 2) {
@@ -768,15 +771,8 @@ select:-webkit-autofill:focus {
 
 .site-footer__container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-}
-
-.site-footer__logo {
-  margin-right: 63px;
-}
-
-.site-footer__sitenav {
-  margin-right: auto;
 }
 
 /* MOBILE-MENU */
@@ -792,6 +788,24 @@ select:-webkit-autofill:focus {
 }
 
 @media only screen and (max-width: 1024px) {
+  .extensions__list {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .extensions__item:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .extensions__item:nth-child(3n) {
+    margin-top: 0;
+  }
+
+  .extensions__item:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+
+  /* Feature-tab */
   .feature-tab-panel {
     justify-content: center;
     align-items: center;
@@ -844,9 +858,24 @@ select:-webkit-autofill:focus {
 }
 
 @media only screen and (max-width: 768px) {
+  .site-footer__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Tabs */
   .tabs__list {
     flex-direction: column;
     align-items: center;
+  }
+
+  .site-footer__logo {
+    margin-bottom: 20px;
+  }
+
+  .site-footer__sitenav {
+    margin-bottom: 20px;
   }
 
   .tabs__item {
@@ -920,6 +949,10 @@ select:-webkit-autofill:focus {
 }
 
 @media only screen and (max-width: 500px) {
+  .accordion__item-text {
+    line-height: 30px;
+  }
+
   .hero__title {
     font-size: 40px;
     line-height: 45px;
@@ -927,6 +960,21 @@ select:-webkit-autofill:focus {
 }
 
 @media only screen and (max-width: 420px) {
+  .subscription__form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .subscription__field-wrapper {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .subscription__field {
+    padding: 12px 20px;
+  }
+
+  /* Hero */
   .hero__title {
     font-size: 25px;
     line-height: 35px;
