@@ -1,54 +1,62 @@
 const modifiers = {
-     FeaturesInnerOpen: 'features__inner-open' ,
-     FeaturesLinkActive: 'features__link--active' ,
-     AccordionItemopen: 'accordion__item--open'
+  tabItemActive: 'tabs__item--active',
+  tabPanelActive: 'tabpanels__item--active',
+  accordionItemOpen: 'accordion__item--open'
 };
 
-const Link = document.querySelectorAll('.features__link');
-const Item = document.querySelectorAll('.features__item');
-const TabsPanel = document.querySelectorAll('.features__inner')
 
-const AccordionToggler = document.querySelectorAll('.accordion__item-toggler');
-const accordionItem = document.querySelectorAll('.accordion__item');
+const elsTabsItem = document.querySelectorAll('.tabs__item');
+const elsTabsPanel = document.querySelectorAll('.tabpanels__item');
+const elsTabLink = document.querySelectorAll('.js-tab-link');
 
-function deactivateTabsPanel () {
-     TabsPanel.forEach(function (TabsPanel) {
-          TabsPanel.classList.remove(modifiers.FeaturesInnerOpen);
-     });
+const elsAccordionItem = document.querySelectorAll('.accordion__item');
+const elsAccordionItemToggler = document.querySelectorAll('.accordion__item-toggler');
+
+function deactivateTabItems () {
+  elsTabsItem.forEach(function (elTabsItem) {
+    elTabsItem.classList.remove(modifiers.tabItemActive);
+  });
 }
 
-function deactivateTabsItem () {
-     Item.forEach(function (Item) {
-          Item.classList.remove(modifiers.FeaturesLinkActive);
-     });
+function deactivateTabPanels () {
+  elsTabsPanel.forEach(function (elTabsPanel) {
+    elTabsPanel.classList.remove(modifiers.tabPanelActive);
+  });
 }
 
-function Accordion () {
-     accordionItem.forEach(function (accordionItem) {
-          accordionItem.classList.remove(modifiers.AccordionItemopen);
-     });
+function closeAccordionItems () {
+  elsAccordionItem.forEach(function (elAccordionItem) {
+    elAccordionItem.classList.remove(modifiers.accordionItemOpen);
+  });
 }
 
-Link.forEach(function (Link) {
-     Link.addEventListener('click' , function (evt) {
-          evt.preventDefault();
-          
-          deactivateTabsItem ();
 
-          Link.parentElement.classList.add(modifiers.FeaturesLinkActive);
-          
-          deactivateTabsPanel ();
+elsTabLink.forEach(function (elTabLink) {
+  elTabLink.addEventListener('click', function (evt) {
+    // Prevent page move
+    evt.preventDefault();
 
-          const elActivePanel = document.getElementById(Link.dataset.tabTarget);
-          elActivePanel.classList.add(modifiers.FeaturesInnerOpen);
-     });
+    // Remove active class form tabs__item elements
+    deactivateTabItems();
+
+    // Add active class to current tabs__item
+    elTabLink.parentElement.classList.add(modifiers.tabItemActive);
+
+    // Remove active class from tabs__panel elements
+    deactivateTabPanels();
+
+    // Show active tab panel
+    // const elTargetPanel = document.querySelector(`#${elTabLink.href.split('#')[1]}`);
+    const elTargetPanel = document.querySelector(elTabLink.dataset.tabTarget);
+    elTargetPanel.classList.add(modifiers.tabPanelActive);
+  });
 });
 
 
-AccordionToggler.forEach(function (AccordionToggler) {
-     AccordionToggler.addEventListener('click' , function () {
-          Accordion ();
+elsAccordionItemToggler.forEach(function (elAccordionItemToggler) {
+  elAccordionItemToggler.addEventListener('click', function () {
+    closeAccordionItems();
 
-          AccordionToggler.closest('.accordion__item').classList.add(modifiers.AccordionItemopen);
-     });
+    elAccordionItemToggler.closest('.accordion__item').classList.add(modifiers.accordionItemOpen);
+  });
 });
